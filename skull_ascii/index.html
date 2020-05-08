@@ -1,0 +1,118 @@
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>post_processing</title>
+    <script src="./js/three.min.js"></script>
+    <script src="./js/three-post-processing.js"></script>
+    <script src="js/TDSLoader.js"></script>
+    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script type="x-shader/x-vertex" id="fragmentShader1">
+    uniform sampler2D backbuffer;
+    uniform float time;
+    varying vec2 vUv;
+
+void main(){
+	vec3 c = texture2D(backbuffer,vUv).xyz;
+	c = vec3(c.x);
+	gl_FragColor = vec4(c,1.0);
+}
+    </script>
+    <script type="x-shader/x-vertex" id="fragmentShader2">
+    #ifdef GL_ES
+    precision mediump float;
+    #endif
+    uniform sampler2D backbuffer;
+    uniform vec2 resolution;
+    uniform float time;
+    uniform sampler2D uTex;
+    varying vec2 vUv;
+
+    void main(){
+	   vec3 c = texture2D(backbuffer,vUv).xyz;
+       //vec2 Uv=vec2(vUv.x+time,vUv.y+time);
+	   //c += sin(Uv.y * 270.0) * 0.2;
+       //c += sin(vUv.x * 800.0) * 0.3;
+       //gl_FragColor=vec4(c,1.0);
+       
+       
+       float fMosaicScalex= 10.0;
+       float fMosaicScaley= 10.0;
+       vec2 vUv2 = vUv;
+       vUv2.x = floor(vUv2.x * resolution.x / fMosaicScalex) / (resolution.x / fMosaicScalex) + (fMosaicScalex / 2.0) / resolution.x;
+       vUv2.y = floor(vUv2.y * resolution.y / fMosaicScaley) / (resolution.y / fMosaicScaley) + (fMosaicScaley / 2.0) / resolution.y;
+  
+    vec3 color = texture2D(backbuffer, vUv2).xyz;
+    //gl_FragColor = vec4(color,1.0);
+
+       //vec2 block =floor(vec2(800/50.0 ,450/50.0));
+       vec2 block =vec2(resolution.x/fMosaicScalex , resolution.y/fMosaicScaley);
+       vec2 uv = fract(vec2(vUv*block));
+       //vec2(fract(vUv.x*20.0),fract(vUv.y*20.0));
+       //gl_FragColor = vec4(uv,0.4,1.0);
+       //gl_FragColor += vec4(c,0.5)*0.5;
+       //uv.x = uv.x*5.0;
+       float mojisuu = 12.0;
+       float gray = floor(length(color.rgb)*mojisuu)*0.5;
+       uv.x = fract((uv.x+gray)/mojisuu);
+       //gl_FragColor = texture2D(uTex,vUv*0.4);
+       //gl_FragColor+=vec4(color,1.0)*0.5;
+       
+       gl_FragColor = texture2D(uTex,uv);
+       gl_FragColor += vec4(0.05,0.05,0.07,1.0);
+       
+       //gl_FragColor=vec4(color,1.0)*1.0;
+       //gl_FragColor+=texture2D(uTex,uv);
+    }
+    </script>
+</head>
+<body>
+<!--    <div id="wapper"><canvas id = "canvas"></canvas></div>-->
+    <div class = "box"></div>
+    <canvas id = "canvas"></canvas>
+    <div id="container">
+        <p style="font-size: 560%">
+            m a i n t i t l e
+        </p>
+    </div>
+    <div id = "container_sub">
+        <p style="font-size: 200%">
+            s u b t i t l e
+        </p>
+    </div>
+    <div id = "container2">
+        <div class="button-4">
+            <div class="eff-4"></div>
+            <a href="#"> Link1 </a>
+        </div>
+    </div>
+    <div id = "koumoku">
+        <ul class="koumoku">
+            <li style="font-size:25px"><p class="text">koumoku1</p></li>
+            <li style="font-size:25px"><p class="text">koumoku2</p></li>
+            <li style="font-size:25px"><p class="text">koumoku3</p></li>
+        </ul>
+    </div>
+    <div id = "maintext">
+        <p>maintext </p>
+        <p> hogehogehoge</p>
+        <p>hogehogehoge</p>
+    </div>
+    <div class="img_wrap">
+        <img src="img/01.jpg">
+    </div>
+    <div class="img_wrap2">
+        <img src="img/02.jpg">
+    </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <ul class="follow-me">
+      <li><a href="https://twitter.com"></a></li>
+      <li><a href="https://www.facebook.com"></a></li>
+    </ul>
+</body>
+
+</html>

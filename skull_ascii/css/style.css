@@ -1,0 +1,320 @@
+
+/**{margin:0}body{background-color:#f3f3f3}*/
+*{margin:0}body{background-color:transparent}
+/**{margin:0}body{background-color:rgba(0,0,0,0)}*/
+@font-face{
+    font-family: 'Andes';
+    src:url(font/Andes.ttf);
+}
+@font-face{
+    font-family: 'GeosansLight';
+    src:url(font/GeosansLight.ttf);
+}
+body{
+    
+    margin: 0;
+    font-weight: 100;
+    color: rgb(255, 255, 255);
+/*    cursor: none;*/
+    
+/*    font-family: Andes;*/
+}
+/*
+body #wrapper{
+	width: 50%;
+	height:100%;
+	min-height:100%;
+	overflow: hidden;
+    position: fixed;
+}
+*/
+
+#canvas{
+    position: absolute;
+}
+
+#container {
+	position: absolute;
+	top:550px;
+    left: 90px;
+    font-family: Andes;
+}
+#container_sub {
+	position: absolute;
+	top:630px;
+    left: 230px;
+    font-family: Andes;
+    color:rgb(220,220,220);
+}
+#container2 {
+	position: absolute;
+	top:30px;
+    right:50px;
+/*    left: 82%;*/
+    left:1000px;
+}
+#maintext{
+    position: absolute;
+    top:250;
+    left:650;
+    color:rgb(10,10,10);
+}
+#koumoku{
+    color: #111111;
+    position: absolute;
+    top:40px;
+    left:600px;
+    font-family:GeosansLight;
+}
+.koumoku li{
+display: inline-block;
+width: 130px;
+height: 50px;
+}
+
+.button-4{
+  width:140px;
+  height:50px;
+  border:2px solid #34495e;
+  float:left;
+  text-align:center;
+  cursor:pointer;
+  position:relative;
+  box-sizing:border-box;
+  overflow:hidden;
+  margin:0 0 40px 50px;
+}
+.button-4 a{
+  font-family:arial;
+  font-size:16px;
+/*  color:#34495e;*/
+  color:#111111;
+  text-decoration:none;
+  line-height:50px;
+  transition:all .5s ease;
+  z-index:2;
+  position:relative;
+}
+.eff-4{
+  width:140px;
+  height:50px;
+  left:-140px;
+/*  background:#34495e;*/
+  background:#111111;
+  position:absolute;
+  transition:all .5s ease;
+  z-index:1;
+}
+.button-4:hover .eff-4{
+  left:0;
+}
+.button-4:hover a{
+  color:#fff;
+}
+
+.text{
+  position: relative;
+  display: inline-block;
+/*  font-size: 2em;*/
+}
+
+.text:before,
+.text:after{
+  top:25px;
+  position: absolute;
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 2px; 
+  background: #111111;
+  transition: 0.7s;
+}
+
+.text:before{
+  left: 50%;
+}
+
+.text:after{
+  right: 50%;
+}
+
+.text:hover:before,
+.text:hover:after{
+  width: 50%;
+}
+
+/*
+.box {
+    top:0px;
+	width: 100%;
+	height: 700px;
+    
+    top:0px;
+	width: 100%;
+	height: 100px;
+    
+    position: absolute;
+	background-color: #f3f3f3;
+	background-image: repeating-linear-gradient(45deg,
+	#e3e3e3, #e3e3e3 1px,
+	transparent 0, transparent 6px);
+}
+*/
+
+.follow-me {
+  position: absolute;
+  list-style: none;
+  margin: 0 0 -8px;
+  overflow: hidden;
+  padding: 0;
+  top:630px;
+  left:1080;
+}
+.follow-me li {
+  float: right;
+  margin: 0 8px 8px 0;
+  padding: 0;
+}
+.follow-me li a::before {
+/*  background-color: #eee;*/
+  background-color: #333;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+/*  color: #333;*/
+  color: #eee;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 16px;
+  height: 44px; /* Button height */
+  line-height: 44px; /* Button height */
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  text-align: center;
+  width: 44px; /* Button width */
+}
+.follow-me li a:hover::before {
+  color: #fff;
+}
+
+.follow-me li a[href*="facebook.com"]::before       { content: "\f09a"; }
+
+.follow-me li a[href*="twitter.com"]::before        { content: "\f099"; }
+
+
+.follow-me li a[href*="facebook.com"]:hover::before       { background-color: #3b5998; }
+
+.follow-me li a[href*="twitter.com"]:hover::before        { background-color: #55acee; }
+
+
+
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+.box {
+  margin-top: 0rem;
+  top:0px;
+  width: 100%;
+  height: 700px;
+  position: absolute;
+  color: #999;
+  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+  text-align: center;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse .92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse .92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse .92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse .92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.img_wrap{
+  position: absolute;
+  top:370px;
+  left:650px;
+  border: 1px solid #ddd;
+  width: 230px;
+  height: 140px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+.img_wrap img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
+.img_wrap:hover img{
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+.img_wrap2{
+  position: absolute;
+  top:370px;
+  left:930px;
+  border: 1px solid #ddd;
+  width: 230px;
+  height: 140px;
+  margin: 0 auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+.img_wrap2 img{
+  width: 100%;
+  transition-duration: 0.5s;
+}
+.img_wrap2:hover img{
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
